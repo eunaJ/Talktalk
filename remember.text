@@ -1,0 +1,10 @@
+// port num
+spring: 8080
+react: 3000
+
+// npm start는 frontend 폴더에서! (Talktalk 아님)
+
+// localhost:8080으로 실행
+.\gradlew build
+cd build/libs
+java -jar Talktalk-0.0.1-SNAPSHOT.jar
