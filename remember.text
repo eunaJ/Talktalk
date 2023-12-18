@@ -2,9 +2,12 @@
 spring: 8080
 react: 3000
 
-// npm start는 frontend 폴더에서! (Talktalk 아님)
+// 실행 방법
+* 서버 2개가 동시에 켜져 있어야 제대로 반영됨 (react랑 spring)
+1. npm start (3000)
+frontend 폴더에서! (Talktalk 아님)
 
-// localhost:8080으로 실행
-.\gradlew build
+2. http://localhost:8080으로 실행
+./gradlew build
 cd build/libs
 java -jar Talktalk-0.0.1-SNAPSHOT.jar
