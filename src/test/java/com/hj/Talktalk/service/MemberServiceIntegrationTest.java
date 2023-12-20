@@ -22,7 +22,9 @@ public class MemberServiceIntegrationTest {
     public void 회원가입() throws Exception{
         // Given
         Member member = new Member();
+        member.setId("m1");
         member.setName("hello");
+        member.setPassword("1234");
 
         // When
         String saveId = memberService.join(member);
@@ -36,10 +38,13 @@ public class MemberServiceIntegrationTest {
     public void 중복_회원_예외() throws Exception{
         // Given
         Member member1 = new Member();
+        member1.setId("s1");
         member1.setName("spring");
-
+        member1.setPassword("1234");
         Member member2 = new Member();
+        member2.setId("s1");
         member2.setName("spring");
+        member2.setPassword("1234");
 
         // When
         memberService.join(member1);

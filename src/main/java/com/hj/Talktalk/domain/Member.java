@@ -8,14 +8,6 @@ public class Member {
     private String id;
     private String name;
     private String password;
-    private LocalDateTime deletedAt;
-
-
-    private List<ChatRoom> chatRooms = new ArrayList<>();
-
-
-
-
 
     public String getId() {
         return id;

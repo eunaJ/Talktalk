@@ -1,4 +1,4 @@
-package com.hj.Talktalk.config;
+package com.hj.Talktalk;
 import com.hj.Talktalk.repository.*;
 import com.hj.Talktalk.service.MemberService;
 
