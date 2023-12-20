@@ -16,7 +16,7 @@ public class MemberService {
     /**
      * 회원가입
      */
-    public Long join(Member member) {
+    public String join(Member member) {
         validateDuplicateMember(member); //중복 회원 검증
         memberRepository.save(member);
         return member.getId();
@@ -33,7 +33,7 @@ public class MemberService {
     public List<Member> findMembers() {
         return memberRepository.findAll();
     }
-    public Optional<Member> findOne(Long memberId) {
+    public Optional<Member> findOne(String memberId) {
         return memberRepository.findById(memberId);
     }
 }

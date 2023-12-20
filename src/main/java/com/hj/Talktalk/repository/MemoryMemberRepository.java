@@ -4,16 +4,17 @@ import com.hj.Talktalk.domain.Member;
 import java.util.*;
 
 public class MemoryMemberRepository implements MemberRepository {
-    private static Map<Long, Member> store = new HashMap<>();
-    private static long sequence = 0L;
+    private static Map<String, Member> store = new HashMap<>();
+    //private static long sequence = 0L;
     @Override
     public Member save(Member member) {
-        member.setId(++sequence);
+        //member.setId(++sequence);
+        member.setId(member.getId());
         store.put(member.getId(), member);
         return member;
     }
     @Override
-    public Optional<Member> findById(Long id) {
+    public Optional<Member> findById(String id) {
         return Optional.ofNullable(store.get(id));
     }
     @Override

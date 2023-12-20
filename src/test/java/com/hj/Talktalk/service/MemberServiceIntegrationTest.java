@@ -5,14 +5,14 @@ import com.hj.Talktalk.repository.MemberRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.transaction.annotation.Transactional;
+//import org.springframework.transaction.annotation.Transactional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @SpringBootTest
-@Transactional
+//@Transactional
 public class MemberServiceIntegrationTest {
     @Autowired MemberService memberService;
     @Autowired MemberRepository memberRepository;
@@ -21,10 +21,12 @@ public class MemberServiceIntegrationTest {
     public void 회원가입() throws Exception{
         // Given
         Member member = new Member();
+        member.setId("h1");
         member.setName("hello");
+        member.setPassword("1234");
 
         // When
-        Long saveId = memberService.join(member);
+        String saveId = memberService.join(member);
 
         // Then
         Member findMember = memberRepository.findById(saveId).get();
@@ -35,10 +37,14 @@ public class MemberServiceIntegrationTest {
     public void 중복_회원_예외() throws Exception{
         // Given
         Member member1 = new Member();
+        member1.setId("s1");
         member1.setName("spring");
+        member1.setPassword("1234");
 
         Member member2 = new Member();
+        member2.setId("s1");
         member2.setName("spring");
+        member2.setPassword("1234");
 
         // When
         memberService.join(member1);
